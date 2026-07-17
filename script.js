@@ -77,6 +77,8 @@ function updateBackground(condition){
 
 async function getWeather(city) {
 
+    loader.style.display = "block";
+
     const url =
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
@@ -87,7 +89,8 @@ async function getWeather(city) {
         weatherDesc.textContent = "Fetching weather...";
         const response = await fetch(url);
         const data = await response.json();
-
+        console.log(response.status);
+        console.log(data);
         if (data.cod != 200) {
             cityName.textContent = "City Not Found";
             temp.textContent = "--°C";
@@ -100,6 +103,7 @@ async function getWeather(city) {
         }
 
         cityName.textContent = data.name;
+        saveRecentCity(data.name);
         temp.textContent = `${Math.round(data.main.temp)}°C`;
         weatherDesc.textContent = data.weather[0].description;
 
@@ -119,11 +123,12 @@ async function getWeather(city) {
 );
 
 const forecastData = await forecastResponse.json();
-
+console.log(data);
 updateForecast(forecastData);
 
     } catch (error) {
-
+        
+        
         alert("Something went wrong!");
 
     }
@@ -152,7 +157,8 @@ async function getWeatherByCoordinates(lat, lon) {
         updateBackground(data.weather[0].main);
 
     } catch (error) {
-
+        
+        
         alert("Unable to fetch location weather.");
 
     }
