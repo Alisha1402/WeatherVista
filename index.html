@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WeatherVista</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="dashboard">
+
+
+
+<header class="navbar">
+
+    <div class="logo">
+        <i class="fa-solid fa-cloud-sun"></i>
+        <h1>Weather Dashboard</h1>
+    </div>
+
+    <button id="themeBtn">
+        <i class="fa-solid fa-moon"></i>
+    </button>
+
+</header>
+
+<div class="subtitle">
+
+    <p>Real-Time Weather Forecast Anywhere</p>
+
+</div>
+
+
+<div class="date-time">
+
+<h3 id="date">Monday, 15 July</h3>
+
+<h2 id="time">10:30 PM</h2>
+
+</div>
+
+<div class="search-box">
+
+<input
+type="text"
+id="cityInput"
+placeholder=" 🔍Search any city...">
+
+<button id="searchBtn">
+Search
+</button>
+
+<button id="locationBtn">
+<i class="fa-solid fa-location-dot"></i>
+</button>
+
+</div>
+
+
+
+<section class="weather-main">
+
+<i id="weatherIcon" class="fa-solid fa-sun"></i>
+
+<h1 id="temp">
+
+29°C
+
+</h1>
+
+<h2 id="cityName">
+
+Lucknow
+
+</h2>
+
+<p id="weatherDesc">
+
+Clear Sky
+
+</p>
+
+</section>
+
+
+
+<section class="weather-details">
+
+<div class="card">
+
+<i class="fa-solid fa-droplet"></i>
+
+<h3>Humidity</h3>
+
+<p id="humidity">80%</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-wind"></i>
+
+<h3>Wind</h3>
+
+<p id="wind">12 km/h</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-gauge-high"></i>
+
+<h3>Pressure</h3>
+
+<p id="pressure">1012 hPa</p>
+
+</div>
+
+<div class="card">
+
+<i class="fa-solid fa-eye"></i>
+
+<h3>Visibility</h3>
+
+<p id="visibility">10 km</p>
+
+</div>
+
+</section>
+
+
+
+<section class="forecast">
+
+<h2>
+
+5 Day Forecast
+
+</h2>
+
+<div class="forecast-container">
+
+<div class="forecast-card">
+
+<h4>Mon</h4>
+
+<i class="fa-solid fa-sun"></i>
+
+<p>30°C</p>
+
+</div>
+
+<div class="forecast-card">
+
+<h4>Tue</h4>
+
+<i class="fa-solid fa-cloud-rain"></i>
+
+<p>28°C</p>
+
+</div>
+
+<div class="forecast-card">
+
+<h4>Wed</h4>
+
+<i class="fa-solid fa-cloud"></i>
+
+<p>29°C</p>
+
+</div>
+
+<div class="forecast-card">
+
+<h4>Thu</h4>
+
+<i class="fa-solid fa-bolt"></i>
+
+<p>26°C</p>
+
+</div>
+
+<div class="forecast-card">
+
+<h4>Fri</h4>
+
+<i class="fa-solid fa-sun"></i>
+
+<p>31°C</p>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Made by Alisha Ahsan
+
+</footer>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
