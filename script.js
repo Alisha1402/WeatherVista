@@ -77,8 +77,7 @@ function updateBackground(condition){
 
 async function getWeather(city) {
 
-    loader.style.display = "block";
-
+    
     const url =
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
 
@@ -103,7 +102,6 @@ async function getWeather(city) {
         }
 
         cityName.textContent = data.name;
-        saveRecentCity(data.name);
         temp.textContent = `${Math.round(data.main.temp)}°C`;
         weatherDesc.textContent = data.weather[0].description;
 
