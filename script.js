@@ -2,7 +2,8 @@ const forecastCards = document.querySelectorAll(".forecast-card");
 
 const apiKey = "f584ea70adac57960cc99968e9330704";
 
-
+const sunrise = document.getElementById("sunrise");
+const sunset = document.getElementById("sunset");
 const dateElement = document.getElementById("date");
 const timeElement = document.getElementById("time");
 const cityInput = document.getElementById("cityInput");
@@ -109,7 +110,18 @@ async function getWeather(city) {
         wind.textContent = data.wind.speed + " m/s";
         pressure.textContent = data.main.pressure + " hPa";
         visibility.textContent = (data.visibility / 1000) + " km";
+        const sunriseTime = new Date(data.sys.sunrise * 1000);
+        const sunsetTime = new Date(data.sys.sunset * 1000);
 
+        sunrise.textContent = sunriseTime.toLocaleTimeString([], {
+        hour: "2-digit",
+       minute: "2-digit"
+});
+
+sunset.textContent = sunsetTime.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit"
+});
         
       
       updateWeatherIcon(data.weather[0].main);
@@ -150,6 +162,19 @@ async function getWeatherByCoordinates(lat, lon) {
         wind.textContent = data.wind.speed + " m/s";
         pressure.textContent = data.main.pressure + " hPa";
         visibility.textContent = (data.visibility / 1000) + " km";
+
+        const sunriseTime = new Date(data.sys.sunrise * 1000);
+        const sunsetTime = new Date(data.sys.sunset * 1000);
+
+    sunrise.textContent = sunriseTime.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit"
+});
+
+sunset.textContent = sunsetTime.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit"
+});
 
         updateWeatherIcon(data.weather[0].main);
         updateBackground(data.weather[0].main);
@@ -202,6 +227,7 @@ searchBtn.addEventListener("click", () => {
     }
 
     getWeather(city);
+    addToHistory(city);
 
 });
 
@@ -306,6 +332,199 @@ function updateForecast(data) {
 
         else
             iconElement.className = "fa-solid fa-cloud";
+
+    });
+
+}
+// ================= CHATBOT =================
+
+const chatToggle = document.getElementById("chatToggle");
+const chatBox = document.getElementById("chatBox");
+const closeChat = document.getElementById("closeChat");
+
+chatToggle.addEventListener("click", () => {
+    chatBox.style.display = "flex";
+});
+
+closeChat.addEventListener("click", () => {
+    chatBox.style.display = "none";
+});
+
+const chatInput = document.getElementById("chatInput");
+const sendMessage = document.getElementById("sendMessage");
+const chatBody = document.getElementById("chatBody");
+
+sendMessage.addEventListener("click", sendChat);
+
+chatInput.addEventListener("keypress", function(event){
+
+    if(event.key === "Enter"){
+        sendChat();
+    }
+
+});
+
+function sendChat(){
+
+    const message = chatInput.value.trim();
+
+    if(message === "") return;
+
+    chatBody.innerHTML += `
+        <div class="user-message">${message}</div>
+    `;
+
+    chatInput.value = "";
+
+    setTimeout(() => {
+
+    let reply = "";
+
+    const userText = message.toLowerCase();
+
+    if(userText.includes("hello") || userText.includes("hi")){
+        reply = "👋 Hello! How can I help you today?";
+    }
+
+    else if(userText.includes("temperature")){
+        reply = "🌡️ Current Temperature is " + temp.textContent;
+    }
+
+    else if(userText.includes("humidity")){
+        reply = "💧 Humidity is " + humidity.textContent;
+    }
+
+    else if(userText.includes("wind")){
+        reply = "🌬️ Wind Speed is " + wind.textContent;
+    }
+
+    else if(userText.includes("pressure")){
+        reply = "📊 Pressure is " + pressure.textContent;
+    }
+
+    else if(userText.includes("city")){
+        reply = "📍 Current City is " + cityName.textContent;
+    }
+
+    else if(userText.includes("weather")){
+        reply = "☁️ " + weatherDesc.textContent;
+    }
+
+    else if(userText.includes("wear") || userText.includes("dress")){
+
+    const temperature = parseInt(temp.textContent);
+
+    if(temperature >= 35){
+        reply = "👕 It's very hot. Wear light cotton clothes, sunglasses and drink plenty of water.";
+    }
+    else if(temperature >= 25){
+        reply = "👕 The weather is pleasant. Light casual clothes are a good choice.";
+    }
+    else{
+        reply = "🧥 It's cool outside. Wear a jacket or warm clothes.";
+    }
+
+}
+
+else if(userText.includes("umbrella") || userText.includes("rain")){
+
+    if(weatherDesc.textContent.toLowerCase().includes("rain")){
+        reply = "☔ Yes! Carry an umbrella because rain is expected.";
+    }else{
+        reply = "🌤️ No umbrella is needed right now.";
+    }
+
+}
+
+else if(userText.includes("travel")){
+
+    if(weatherDesc.textContent.toLowerCase().includes("storm")){
+        reply = "⚠️ Travel is not recommended due to stormy weather.";
+    }else{
+        reply = "🚗 Weather looks good for travelling. Drive safely!";
+    }
+
+}
+
+else if(userText.includes("sunscreen") || userText.includes("sun")){
+
+    if(parseInt(temp.textContent) >= 30){
+        reply = "🧴 Yes! Use sunscreen and stay hydrated.";
+    }else{
+        reply = "😊 Sunscreen is optional today.";
+    }
+
+}
+
+    else{
+        reply = "🤖 Sorry, I don't understand. Try asking about weather, temperature, humidity, wind or pressure.";
+    }
+
+    chatBody.innerHTML += `
+        <div class="bot-message">${reply}</div>
+    `;
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+},500);
+}
+
+// ===== Favorite Cities =====
+
+const favCities = document.querySelectorAll(".favCity");
+
+favCities.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const city = button.textContent;
+
+        cityInput.value = city;
+
+        getWeather(city);
+        addToHistory(city);
+
+    });
+
+});
+
+// ===== Search History =====
+
+const historyList = document.getElementById("searchHistory");
+
+let searchHistory = [];
+
+function addToHistory(city){
+
+    city = city.trim();
+
+    if(searchHistory.includes(city)){
+        searchHistory = searchHistory.filter(item => item !== city);
+    }
+
+    searchHistory.unshift(city);
+
+    if(searchHistory.length > 5){
+        searchHistory.pop();
+    }
+
+    historyList.innerHTML = "";
+
+    searchHistory.forEach(item => {
+
+        const li = document.createElement("li");
+
+        li.textContent = item;
+
+        li.addEventListener("click", () => {
+
+            cityInput.value = item;
+
+            getWeather(item);
+
+        });
+
+        historyList.appendChild(li);
 
     });
 

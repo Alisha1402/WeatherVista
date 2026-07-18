@@ -75,6 +75,18 @@ Search
 
 </div>
 
+<div class="favorites">
+    <button class="favCity">Lucknow</button>
+    <button class="favCity">Delhi</button>
+    <button class="favCity">Mumbai</button>
+    <button class="favCity">Bengaluru</button>
+</div>
+
+<div class="history-box">
+    <h3>🕒 Recent Searches</h3>
+    <ul id="searchHistory"></ul>
+</div>
+
 <section class="weather-main">
 
 <i id="weatherIcon" class="fa-solid fa-sun"></i>
@@ -141,6 +153,18 @@ Clear Sky
 
 <p id="visibility">10 km</p>
 
+</div>
+
+<div class="card">
+    <i class="fa-solid fa-sun"></i>
+    <h3>Sunrise</h3>
+    <p id="sunrise">--</p>
+</div>
+
+<div class="card">
+    <i class="fa-solid fa-moon"></i>
+    <h3>Sunset</h3>
+    <p id="sunset">--</p>
 </div>
 
 </section>
@@ -218,9 +242,54 @@ Developed by Alisha Ahsan
 
 </footer>
 
+<!-- ================= AI CHATBOT ================= -->
+
+<button id="chatToggle">
+    <i class="fa-solid fa-robot"></i>
+</button>
+
+<div class="chat-box" id="chatBox">
+
+    <div class="chat-header">
+        <h3>🤖 Weather AI</h3>
+        <span id="closeChat">&times;</span>
+    </div>
+
+    <div class="chat-body" id="chatBody">
+
+        <div class="bot-message">
+            👋 Hello! I'm your Weather Assistant.
+            <br><br>
+            You can ask:
+            <br>
+            • Will it rain today?
+            <br>
+            • What should I wear?
+            <br>
+            • Is today good for travelling?
+        </div>
+
+    </div>
+
+    <div class="chat-footer">
+
+    <input
+        type="text"
+        id="chatInput"
+        placeholder="Ask anything...">
+
+    <button id="sendMessage">
+        <i class="fa-solid fa-paper-plane"></i>
+    </button>
+
+</div>
+
+<!-- ================= END CHATBOT ================= -->
+
 </div>
 
 </div>
+
 
 <script src="script.js"></script>
 
