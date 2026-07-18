@@ -336,7 +336,6 @@ function updateForecast(data) {
     });
 
 }
-// ================= CHATBOT =================
 
 const chatToggle = document.getElementById("chatToggle");
 const chatBox = document.getElementById("chatBox");
@@ -469,7 +468,7 @@ else if(userText.includes("sunscreen") || userText.includes("sun")){
 },500);
 }
 
-// ===== Favorite Cities =====
+
 
 const favCities = document.querySelectorAll(".favCity");
 
@@ -488,7 +487,7 @@ favCities.forEach(button => {
 
 });
 
-// ===== Search History =====
+
 
 const historyList = document.getElementById("searchHistory");
 

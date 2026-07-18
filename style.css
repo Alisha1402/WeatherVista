@@ -552,8 +552,6 @@ flex-direction:column;
 
 }
 
-/* ================= CHATBOT ================= */
-
 #chatToggle{
     position: fixed;
     bottom: 25px;
@@ -661,7 +659,7 @@ flex-direction:column;
     cursor: pointer;
 }
 
- /* ===== Favorite Cities ===== */
+ 
 
 .favorites{
     display:flex;
@@ -688,7 +686,7 @@ flex-direction:column;
     transform:translateY(-3px);
 }   
 
-/* ===== Search History ===== */
+
 
 .history-box{
     background: rgba(255,255,255,0.15);
