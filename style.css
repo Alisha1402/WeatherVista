@@ -716,3 +716,75 @@ flex-direction:column;
 #searchHistory li:hover{
     background:rgba(255,255,255,0.35);
 }
+
+/* ===========================
+   Mobile Responsive Design
+=========================== */
+@media (max-width: 768px) {
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .container{
+        width:95%;
+        margin:15px auto;
+        padding:20px;
+    }
+
+    h1,
+    .logo-title{
+        font-size:2rem;
+        text-align:center;
+        word-break:break-word;
+    }
+
+    .subtitle{
+        font-size:1.1rem;
+        text-align:center;
+    }
+
+    input{
+        width:100%;
+        font-size:16px;
+    }
+
+    button{
+        width:100%;
+        margin-top:12px;
+    }
+
+    .quick-cities{
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .weather-cards,
+    .details,
+    .forecast{
+        grid-template-columns:1fr;
+    }
+
+    .forecast-card{
+        margin-bottom:15px;
+    }
+
+    img{
+        max-width:100%;
+        height:auto;
+    }
+
+    .weather-ai{
+        width:90%;
+        right:5%;
+        left:5%;
+        bottom:20px;
+        height:420px;
+    }
+
+    .chat-toggle{
+        right:20px;
+        bottom:20px;
+    }
+}
