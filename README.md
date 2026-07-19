@@ -1,23 +1,29 @@
 # 🌤️ WeatherVista
 
-A modern and responsive weather application that provides real-time weather information for any city using the OpenWeather API. Built with HTML, CSS, and JavaScript, WeatherVista offers a clean UI with useful weather insights and interactive features.
+WeatherVista is a modern and responsive weather application that provides real-time weather information for any city using the OpenWeather API. It features a beautiful glassmorphism interface, dynamic backgrounds, a 5-day forecast, an AI-style weather assistant chatbot, favorite cities, and search history for an enhanced user experience.
+
+---
 
 ## 🚀 Live Demo
 
-(Add your Netlify link here after deployment)
+**Netlify:**
+https://weathervista-alisha.netlify.app/
 
-Example:
-https://your-app-name.netlify.app
+---
 
+## 📂 GitHub Repository
 
+**Repository:**
+https://github.com/Alisha1402/WeatherVista
 
+---
 
 ## ✨ Features
 
 * 🔍 Search weather by city name
 * 📍 Get weather using current location
 * 🌡️ Real-time temperature
-* 💧 Humidity information
+* 💧 Humidity
 * 🌬️ Wind speed
 * 📊 Atmospheric pressure
 * 👀 Visibility
@@ -26,10 +32,10 @@ https://your-app-name.netlify.app
 * 🤖 AI-style Weather Assistant Chatbot
 * ⭐ Favorite Cities
 * 🕒 Recent Search History
-* 🎨 Dynamic weather background
-* ☁️ Dynamic weather icons
+* 🎨 Dynamic Weather Background
+* ☁️ Dynamic Weather Icons
 * 📱 Fully Responsive Design
-* ✨ Glassmorphism UI
+* ✨ Modern Glassmorphism User Interface
 
 ---
 
@@ -44,9 +50,9 @@ https://your-app-name.netlify.app
 
 ---
 
-## 📂 Project Structure
+## 📁 Project Structure
 
-```
+```text
 WeatherVista/
 │── index.html
 │── style.css
@@ -56,9 +62,9 @@ WeatherVista/
 
 ---
 
-## ⚙️ How to Run
+## ⚙️ Installation & Usage
 
-1. Clone the repository
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/Alisha1402/WeatherVista.git
@@ -66,36 +72,57 @@ git clone https://github.com/Alisha1402/WeatherVista.git
 
 2. Open the project folder.
 
-3. Run using VS Code Live Server.
+3. Run the project using **VS Code Live Server** or any local web server.
 
 ---
 
-## 🔑 API Used
+## 🔑 API
 
-OpenWeather API
+This project uses the **OpenWeather API** to fetch live weather information.
 
 https://openweathermap.org/api
 
 ---
 
-## 👩‍💻 Developed By
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home](screenshots/home.png)
+
+### 🌍 Weather Search (Lucknow)
+![Lucknow Weather](screenshots/lucknow-weather.png)
+
+### 📅 5-Day Forecast
+![Forecast](screenshots/forecast.png)
+
+### 🤖 Weather AI Assistant
+![Weather AI](screenshots/weather-ai.png)
+
+---
+
+## 🔮 Future Enhancements
+
+* 🌫️ Air Quality Index (AQI)
+* 🔔 Weather Alerts
+* 🌍 Multi-language Support
+* 🎤 Voice Commands
+* 📊 Weekly Weather Analytics
+
+---
+
+## 👩‍💻 Developer
 
 **Alisha Ahsan**
 
-GitHub: https://github.com/Alisha1402
-
-LinkedIn: https://www.linkedin.com/in/alisha-ahsan-96baba313
-
----
-
-## ⭐ Future Improvements
-
-* Air Quality Index (AQI)
-* Weather Alerts
-* Multi-language Support
-* Voice Commands
-* Weekly Weather Analytics
+* GitHub: https://github.com/Alisha1402
+* LinkedIn: https://www.linkedin.com/in/alisha-ahsan-96baba313
 
 ---
 
-If you found this project helpful, don't forget to ⭐ the repository!
+## 📄 License
+
+This project is developed for educational and learning purposes.
+
+---
+
+⭐ If you like this project, consider giving the repository a star!
