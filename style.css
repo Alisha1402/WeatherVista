@@ -798,9 +798,9 @@ footer{
 }
 
 .chat-footer button{
-    width:50px !important;
-    min-width:50px;
-    height:45px;
+    width:52px !important;
+    min-width:52px;
+    height:48px;
     margin-left:10px;
     display:flex;
     justify-content:center;
